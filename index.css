@@ -1,1 +1,412 @@
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: 'Vazir', Tahoma, sans-serif;
+  background: #f5f7fa;
+  color: #2d3436;
+  padding: 80px 16px 90px;
+  min-height: 100vh;
+  direction: rtl;
+}
+
+/* ===== HEADER ===== */
+.app-header {
+  text-align: center;
+  background: linear-gradient(135deg, #6c5ce7, #0984e3);
+  color: #fff;
+  padding: 20px 16px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(9, 132, 227, 0.3);
+}
+
+.app-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.app-header p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== BOTTOM NAVIGATION ===== */
+.bottom-nav {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 8px;
+  border-radius: 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #636e72;
+  font-size: 11px;
+  transition: all 0.2s;
+  padding: 4px 12px;
+  border-radius: 16px;
+}
+
+.nav-item .nav-icon {
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+
+.nav-item.active {
+  color: #0984e3;
+  font-weight: 700;
+}
+
+.nav-item.active .nav-icon {
+  transform: scale(1.1);
+}
+
+/* ===== کارت معادله در صفحه خانه ===== */
+.equation-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border-right: 5px solid #0984e3;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.equation-card .eq-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3436;
+}
+
+.equation-card .eq-text {
+  font-size: 15px;
+  color: #2d3436;
+  background: #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 10px;
+  direction: ltr;
+  text-align: left;
+  font-family: 'Courier New', monospace;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.equation-card .eq-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.equation-card .eq-index {
+  font-size: 12px;
+  color: #b2bec3;
+  font-weight: 600;
+}
+
+/* ===== دکمه‌ها ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 30px;
+  font-family: 'Vazir', Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  background: #dfe6e9;
+  color: #2d3436;
+}
+
+.btn-primary {
+  background: #0984e3;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(9, 132, 227, 0.3);
+}
+.btn-primary:hover { background: #0873c7; transform: translateY(-2px); }
+
+.btn-success {
+  background: #00b894;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
+}
+.btn-success:hover { background: #00a381; transform: translateY(-2px); }
+
+.btn-danger {
+  background: #e17055;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(225, 112, 85, 0.3);
+}
+.btn-danger:hover { background: #d63031; transform: translateY(-2px); }
+
+.btn-secondary {
+  background: #b2bec3;
+  color: #2d3436;
+}
+.btn-secondary:hover { background: #a0aab0; }
+
+.btn-block {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+}
+
+.btn-like {
+  background: transparent;
+  font-size: 22px;
+  padding: 4px 8px;
+  transition: transform 0.2s;
+}
+.btn-like:hover { transform: scale(1.2); }
+
+.btn-delete {
+  background: transparent;
+  color: #e17055;
+  font-size: 18px;
+  padding: 4px 8px;
+}
+.btn-delete:hover { background: #fceae8; border-radius: 30px; }
+
+/* ===== صفحه افزودن (solver) ===== */
+.solver-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 24px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.selector-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.selector-row label {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.select-box {
+  padding: 8px 16px;
+  border-radius: 30px;
+  border: 2px solid #dfe6e9;
+  font-family: 'Vazir', Tahoma, sans-serif;
+  font-size: 14px;
+  background: #fff;
+  outline: none;
+  transition: border 0.2s;
+}
+.select-box:focus { border-color: #0984e3; }
+
+.solver-container {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
+  min-height: 120px;
+}
+
+.equation-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 4px;
+  background: #fff;
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  direction: ltr;
+}
+
+.equation-row input {
+  width: 52px;
+  padding: 6px 4px;
+  border: 2px solid #dfe6e9;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Courier New', monospace;
+  transition: border 0.2s;
+}
+.equation-row input:focus {
+  border-color: #0984e3;
+  outline: none;
+}
+
+.equation-row .var-label {
+  font-weight: 700;
+  font-size: 15px;
+  color: #2d3436;
+  margin: 0 2px;
+}
+
+.equation-row .op {
+  font-weight: 700;
+  color: #636e72;
+  margin: 0 2px;
+}
+
+.eq-sign {
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0 6px;
+  color: #2d3436;
+}
+
+/* ===== جواب و مراحل ===== */
+.result-box {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #e8f4fd;
+  border-right: 5px solid #0984e3;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  display: none;
+  direction: ltr;
+}
+
+.steps-box {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #f0f0f0;
+  border-right: 5px solid #00b894;
+  font-size: 14px;
+  display: none;
+  direction: ltr;
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: 'Courier New', monospace;
+  white-space: pre-wrap;
+  line-height: 1.8;
+}
+
+/* ===== مودال ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 28px 24px;
+  border-radius: 24px;
+  max-width: 340px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-box p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #2d3436;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* ===== راهنما ===== */
+.guide-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  border-right: 5px solid #6c5ce7;
+}
+
+.guide-card h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #2d3436;
+}
+
+.guide-card ul {
+  list-style: none;
+  padding-right: 0;
+}
+.guide-card ul li {
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f2f6;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge-like { background: #e17055; color: #fff; padding: 2px 10px; border-radius: 30px; font-size: 13px; }
+.badge-delete { background: #d63031; color: #fff; padding: 2px 10px; border-radius: 30px; font-size: 13px; }
+.badge-danger { background: #e17055; color: #fff; padding: 2px 12px; border-radius: 30px; font-size: 13px; }
+.badge-primary { background: #0984e3; color: #fff; padding: 2px 12px; border-radius: 30px; font-size: 13px; }
+
+/* ===== حالت خالی ===== */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #b2bec3;
+  font-size: 18px;
+}
+
+.empty-state .icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* ===== ریسپانسیو ===== */
+@media (max-width: 480px) {
+  .equation-row input { width: 44px; font-size: 13px; }
+  .equation-row { padding: 8px 6px; gap: 3px; }
+  .app-header h1 { font-size: 20px; }
+  .nav-item .nav-icon { font-size: 20px; }
+  }
